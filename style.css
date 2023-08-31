@@ -1,0 +1,117 @@
+.main-div{
+    width: 90%;
+    height: auto;
+    padding: 40px;
+    border: 1px solid #dd0525;
+    border-radius: 16px;
+    margin: auto;
+    font-family: "Comfortaa", Sans-serif;
+ }
+
+ .main-div .input-fild{
+    display: flex;
+  flex-wrap: nowrap;
+}
+
+.main-div .input-fild> div{
+    width: 50%;
+    gap: 50px;
+}
+
+.main-div input{
+    padding: 5px 10px 5px 10px;
+  border-radius: 3px;
+  border: 1px solid #dd0525;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  font-family: "Comfortaa", Sans-serif;
+  color: #000000;
+  text-align: left;
+    width: 70%;
+  height: 30px;
+  margin: 8px 0px;
+}
+.main-div input:focus{
+    border: 1px solid #dd0525;
+    box-sizing: border-box;
+}
+
+.main-div label{
+    width: 126px;
+  height: 27px;
+  background-color: rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  font-family: "Comfortaa", Sans-serif;
+  color: #333333;
+  text-align: left;
+  line-height: normal;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.main-div p{
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    font-family: "Comfortaa", Sans-serif;
+    color: #333333;
+    text-align: left;
+    line-height: 16px;
+    font-weight: 400;
+}
+.main-div p span{
+    font-weight: 600;
+    line-height: 30px;
+}
+
+.main-div button{
+    width: auto;
+  height: 40px;
+  padding: 2px 20px 2px 20px;
+  border-radius: 5px;
+  background-color: #dd0525;
+  box-sizing: border-box;
+  font-family: "Comfortaa", Sans-serif;
+  color: #ffffff;
+  text-align: center;
+  line-height: normal;
+  letter-spacing: 2.7px;
+  outline: 0 !important; 
+  font-size: 18px;
+  text-transform: uppercase;
+  border-color: #dd0525;
+  border: 1px solid;
+  margin-top: 20px;
+
+}
+
+.main-div button:hover{
+    background-color: #000000;
+    border-color: #000000;
+    
+}
+
+.result h3{
+    font-size: 30px;
+    line-height: 35px;
+    font-family: "Comfortaa", Sans-serif;
+    color: #dd0525;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+    .main-div .input-fild div{
+        width: 100%;
+        
+    }
+    .main-div .input-fild{
+        display: block;
+    }
+    .main-div{
+        width: 90%;
+        max-width: 90%;
+        padding: 20px;
+    }
+}
