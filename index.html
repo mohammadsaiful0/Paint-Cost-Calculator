@@ -10,8 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-       <div class="main-div">
-        <p class="app-notice">Simply input the height and width in your preferred units, and our calculator will do the rest.</p>
+    <div class="main-div">
+        <p class="app-notice">Simply input the height and width in centimeters, and our calculator will do the rest.</p>
         <div class="input-fild">
             <div class="height-fild">
                 <label for="height">Height (CM)</label><br>
@@ -22,37 +22,37 @@
                 <input class="width-input-in-cm" id="width-cm" placeholder="Width" type="number">
             </div>
         </div>
-
+    
         <button class="result-btn" id="result-btn">Calculate</button>
         <div class="result">
             <h3 class="result-text"></h3>
         </div>
-        <p><span class="price-for-per-meter">120 EUR per square meter</span><br> Our minimum charge will start from 120 EUR (i.e if a project is smaller than 1 sq meter we charge 120 EUR)</p>
+        <p><span class="price-for-per-meter">150 EUR per square meter</span><br>
+            Our minimum charge will start from 150 EUR (i.e., if a project is smaller than 1 sq meter, we charge 150 EUR).</p>
     </div>
-
+    
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Get references to input fields and result elements
             const heightInput = document.getElementById("height-cm");
             const widthInput = document.getElementById("width-cm");
             const resultText = document.querySelector(".result-text");
-
-            // Calculate function
+    
             function calculateCost() {
                 const height = parseFloat(heightInput.value);
                 const width = parseFloat(widthInput.value);
-                const costPerSquareMeter = 120;
-
+                const costPerSquareMeter = 150; // 150 EUR per square meter
+    
                 if (isNaN(height) || isNaN(width)) {
                     resultText.textContent = "Please enter valid dimensions.";
                 } else {
-                    const area = height * width / 10000; // Convert cm² to m²
-                    const totalCost = Math.max(area, 1) * costPerSquareMeter; // Minimum charge of 120 EUR
-                    resultText.textContent = `${totalCost.toFixed(2)} €`;
+                    // Convert input from CM to square meters
+                    const areaInSquareMeters = (height * width) / 10000;
+                    const totalCost = Math.max(areaInSquareMeters, 1) * costPerSquareMeter; // Minimum charge of 150 EUR
+    
+                    resultText.textContent = `${totalCost.toFixed(2)} EUR`;
                 }
             }
-
-            // Attach calculateCost function to the button click event
+    
             const calculateButton = document.getElementById("result-btn");
             calculateButton.addEventListener("click", calculateCost);
         });
