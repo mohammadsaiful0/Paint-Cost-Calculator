@@ -28,8 +28,9 @@
             <h3 class="result-text"></h3>
         </div>
         <p><span class="price-for-per-meter">150 EUR per square meter</span><br>
-            Our minimum charge will start from 150 EUR (i.e., if a project is smaller than 1 sq meter, we charge 150 EUR).</p>
-    </div>
+            Our minimum charge will start from 150 EUR (i.e., if a project is smaller than 1 sq meter, we charge 150 EUR).
+            <br>If dimensions exceed 10 centimeters for a meter, they will be rounded up to the next meter.
+           
     
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -45,11 +46,34 @@
                 if (isNaN(height) || isNaN(width)) {
                     resultText.textContent = "Please enter valid dimensions.";
                 } else {
-                    // Convert input from CM to square meters
-                    const areaInSquareMeters = (height * width) / 10000;
-                    const totalCost = Math.max(areaInSquareMeters, 1) * costPerSquareMeter; // Minimum charge of 150 EUR
+                    // Round up dimensions to the next meter if they exceed 10 centimeters for a meter
+                    const roundedHeight = Math.ceil(height / 100); // Convert cm to meters and round up
+                    const roundedWidth = Math.ceil(width / 100); // Convert cm to meters and round up
     
-                    resultText.textContent = `${totalCost.toFixed(2)} EUR`;
+                    // Calculate the area in square meters
+                    const areaInSquareMeters = roundedHeight * roundedWidth;
+    
+                    // Define price tiers
+                    const priceTiers = {
+                        1: 150,
+                        2: 300,
+                        3: 500,
+                        4: 700
+                    };
+    
+                    // Calculate the total cost based on the area and price tiers
+                    let totalCost = 0;
+                    if (areaInSquareMeters >= 5) {
+                        // For 5 SQM and above, contact for a price
+                        resultText.textContent = "Please contact us to arrange a price";
+                    } else {
+                        // Calculate based on defined price tiers
+                        totalCost = priceTiers[areaInSquareMeters];
+                        if (totalCost === undefined) {
+                            totalCost = 0;
+                        }
+                        resultText.textContent = `${totalCost.toFixed(2)} EUR`;
+                    }
                 }
             }
     
@@ -57,7 +81,7 @@
             calculateButton.addEventListener("click", calculateCost);
         });
     </script>
-
+    
 
 </body>
 </html>
